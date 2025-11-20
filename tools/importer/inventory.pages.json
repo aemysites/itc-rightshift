@@ -1,0 +1,452 @@
+{
+  "templates": [
+    {
+      "name": "'Dashboard Template'",
+      "cluster": 1,
+      "pages": [
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/calcium-deficiency-symptoms.html",
+          "uuid": "173e286907c36336028c754c26441d9a60486877"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/menopause-diet-plan.html",
+          "uuid": "f345861d820ca11d7f856955fb220925015e9994"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/whole-grains-for-diabetics.html",
+          "uuid": "a00f8b88ffd08a9e4dc363600dfc16c9ca575ff8"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/best-fruits-for-diabetes.html",
+          "uuid": "8dff4758da407065b1e8e3e6400d018ad6f8f89c"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/best-digestion-fruits-and-vegetables.html",
+          "uuid": "50b1ff5598efdb9c0aa67150ccc22f6ecf4b5554"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/benefits-of-whole-grain.html",
+          "uuid": "87b03b55bec769357b77626bb408928f0a6c6c51"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/benefits-of-seeds.html",
+          "uuid": "a6e71bf872d83c0cd5b3231719ce71fe88408e2c"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/benefits-of-papaya-for-gut-health.html",
+          "uuid": "66b1cdf9bdb080549e4913f954ece03796fb2542"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/advantage-of-pumpkin.html",
+          "uuid": "31e5ac1d08d150ef3ecc9794876b3e2df00eeb50"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/almonds-benefits.html",
+          "uuid": "8a5eb44676f2315e801fc6cc5d35bf9af076cb43"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/benefits-of-magnesium.html",
+          "uuid": "a519d874d7c9e75b68ae80690c7d92b76dd02c12"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/bajra-health-benefits.html",
+          "uuid": "2896fff6077414b1dd4620c0e991598e89dee47d"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/nutritional-value-of-spinach.html",
+          "uuid": "fcf834e1b30e6cca7a8fce8a994a8da3cb00b5da"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/natural-sources-of-magnesium-for-adults.html",
+          "uuid": "84e91507c67197401a9cc376f229bdc847d0ae2a"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/magnesium-rich-recipe-ideas.html",
+          "uuid": "2edf087bc59dfd8c7fd637ac0197eb31a822af2b"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/low-calorie-indian-foods.html",
+          "uuid": "57b3bc78bf78ac8043aed5f03c66d84c4ca4f8b8"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/intermittent-fasting-benefits.html",
+          "uuid": "b4ce7c78afdbae8355d58424893eb0905ebb6c3a"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/high-protein-foods.html",
+          "uuid": "07ef31727ce345b97019f98c7326edd853dd71d7"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/heart-healthy-foods-to-add-to-your-diet.html",
+          "uuid": "08ddc38e03aac474ef51273d7011fa342ef3b824"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/healthy-weight-reducing-recipes.html",
+          "uuid": "418dce70a2356b26da34228eabf23418c6117b84"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/healthy-iron-rich-foods.html",
+          "uuid": "83e5e2785116806bad4b657305bfbb0efd3a38d8"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/healthy-eating-habits.html",
+          "uuid": "6ab674ea71520d4bb3482d338586dc3ddeb03849"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/health-benefits-of-phosphorus-to-age-well.html",
+          "uuid": "7561010778217f3be0c0c0e396d765c704280dcb"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/health-benefits-of-oats.html",
+          "uuid": "e0a0054a215af1ec7384e8661a94a14feb0de311"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/health-benefits-of-manganese-during-midlife.html",
+          "uuid": "6a8c99a715c52c43e3f102a32f327af07430e164"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/good-carbs-vs-bad-carbs.html",
+          "uuid": "d195ecbc13e259690a59600b437faa9458282434"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/foxtail-millets-for-diabetes.html",
+          "uuid": "7ea3c4cedea67e48ad2d872e039fec34da96a7b5"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/foods-that-boosts-brain-function.html",
+          "uuid": "29328ce79c3c60245fc7e5c595a754ff12c14779"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/foods-for-muscle-gain.html",
+          "uuid": "a8bd5bd5f65855dca5da264a2f03717992502ab4"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/fiber-rich-recipes.html",
+          "uuid": "ff0d6ce5345a34732a20bfc1ddf89c0dd270c24b"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/fermented-foods.html",
+          "uuid": "07cf3d98b2f56153638807359ede3a010fe20f96"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/energy-boosting-snacks.html",
+          "uuid": "e518fd9ae6a273bda02ee8368a06f5009c4aedce"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/calcium-rich-recipes.html",
+          "uuid": "f4e9579ce560274e19d38a517ad498ad45b9651b"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/protein-for-ageing.html",
+          "uuid": "d58611892038b52c86bcd27316051090ec94349f"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/vitamin-a-and-its-benefits.html",
+          "uuid": "0c2c8bfbaef02ec26a5fe51c7e150a3dec7ad53b"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/understanding-functioning-of-vitamin-k.html",
+          "uuid": "fd5bcc7f9b9e9c696e0eb17d3808e70733bfe8d8"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/soluble-fiber-vs-insoluble-fiber.html",
+          "uuid": "81ba7ca22102bd2b1c91ffce6f131f27308b851f"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/ragi-for-diabetes.html",
+          "uuid": "fa58caa895c256add9aa392f34886dceaed8d47d"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/ragi-benefits-and-nutrition.html",
+          "uuid": "cd8569bc3e693d9f25d9db41af7dfbee06e61a3a"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/protein-rich-foods-for-vegetarians.html",
+          "uuid": "8b96bcd1653f3b0c779d6f57354956813140d687"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/probiotics-for-weightloss.html",
+          "uuid": "d1f50281c7bc17d21382a55f1fd7e3914dbfd61f"
+        }
+      ]
+    },
+    {
+      "name": "'Dashboard'",
+      "cluster": 2,
+      "pages": [
+        {
+          "url": "https://rightshift.in/blogs/right-mindset/what-is-healthy-ageing.html",
+          "uuid": "5958ffaa57eb5701ae93ef5b6ca4ab0cab4cd19c"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-mindset/social-isolation-loneliness-in-ageing-adults.html",
+          "uuid": "cb701d45e8821b2ec4a1ec634c7014f32aef079a"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-mindset/art-therapy-for-mental-health.html",
+          "uuid": "ba8efd09af59d90cd000e08213f5b4df2536ad0b"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-mindset/hobbies-for-men-and-women.html",
+          "uuid": "33cc5483f12cdb14b5003009ed20b64d20f5c472"
+        }
+      ]
+    },
+    {
+      "name": "'Dashboard Template'",
+      "cluster": 3,
+      "pages": [
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/how-to-get-better-sleep-for-adults.html",
+          "uuid": "f59af22b9dee63110799031569ec7ec0da9add6d"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/empty-nest-syndrome.html",
+          "uuid": "d39a717a62f308fdf5916d1fcb39b9dede560d2b"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/exercise-for-muscle-gain.html",
+          "uuid": "8478ac6c75204b8f37b9ca88058de81f5ccb1ad8"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/healthy-lifestyle-tips-habits-for-midlife.html",
+          "uuid": "5874239e3c997abb684cf160c1fe700a3032bd97"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/midlife-crisis.html",
+          "uuid": "ae3c28bbfd416eeaa4f22de3b47d55759ab9bce4"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/risk-of-sedentary-lifestyle.html",
+          "uuid": "c5e42446081c2f4d5d24eb6d1dab754d64e938b9"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/sleeping-hygiene.html",
+          "uuid": "7dd2bd4efe377f8e8f764754819e61cb82445d9f"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/understanding-causes-of-loneliness.html",
+          "uuid": "7e58d62a92a3c1448b9f10fbfd0a2c5f768476ca"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/yoga-benefits-for-ageing-adults.html",
+          "uuid": "c3ab060b67c5b12b99fadfac6305e20cd606dc42"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/digital-detox.html",
+          "uuid": "64db05d48ee0cfdd1048abc4b86b9d64b9de6cf4"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/breakfast-foods-for-weight-loss.html",
+          "uuid": "7e3a5f9a27975a13c8b5cbadbee93975f0406c58"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/healthy-and-happy-retirement.html",
+          "uuid": "ea584620388229c34375752e2516ecec90061a49"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/healthy-habits-for-ageing.html",
+          "uuid": "442cb488cca9d2dddc7de0a5cf0287976abd0c09"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-lifestyle/exercises-for-perimenopause-and-menopause.html",
+          "uuid": "ee23fe38b4fc3efcd13344c47eb96f5b3dab5e0b"
+        }
+      ]
+    },
+    {
+      "name": "'Portfolio Gallery'",
+      "cluster": 4,
+      "pages": [
+        {
+          "url": "https://rightshift.in/privacy-policy.html",
+          "uuid": "07b67e124cb66a6ea8e4160785dca0825ff656f5"
+        },
+        {
+          "url": "https://rightshift.in/terms-and-conditions.html",
+          "uuid": "1b01d7c5b5e6bd09c902aefab83b2a781b7e2a0d"
+        }
+      ]
+    },
+    {
+      "name": "Dashboard Template",
+      "cluster": 5,
+      "pages": [
+        {
+          "url": "https://rightshift.in/blogs/right-health/magnesium-for-sleep.html",
+          "uuid": "0e50f7ee95c26a5ca17161123c1460ca9c8b4eae"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/bone-health.html",
+          "uuid": "028c8f4605a8734b3ad1903d3f62486033048d69"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/exercise-for-mental-wellness.html",
+          "uuid": "b0e16645b00c785ab231a5baf243fa9c9ba73c00"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/iron-deficiency-symptoms-and-reasons.html",
+          "uuid": "4070563050863e34b1b1a0c7015af6c048a47a83"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/anaemia-symptoms-in-women.html",
+          "uuid": "07d9f9cb455f8c5dc55fccd773e32a9e09e30eed"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/benefits-of-aerobic-exercises.html",
+          "uuid": "ed73b01f652b4bfcfc3af25580d888af6a2d7071"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/benefits-and-advantages-of-vitamin-b1.html",
+          "uuid": "e50d68d6f181fa6098e70c36835821b3e852f240"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/vitamin-b12-rich-food-for-vegetarians.html",
+          "uuid": "d9ee751d3b09e913839a2f3c9c761b978f38f361"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/what-are-antioxidants.html",
+          "uuid": "46465ae824eed123d660ba072457707b204631de"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/what-is-osteoarthritis.html",
+          "uuid": "66e1b851d1f51074c788106a6452768f0f44e0ed"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/what-is-sarcopenia.html",
+          "uuid": "59921c56765daf780bfa45fd9ca2a2fc865a8f6b"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/best-cooking-oil-for-good-health.html",
+          "uuid": "15cfa835c04c596f1bdcf13dc179b6f9cb6163e5"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/bloated-stomach.html",
+          "uuid": "f2e5d8c5ae8f240673ee4081649719b05eda1601"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/cholesterol-reducing-foods.html",
+          "uuid": "8741a69395abe432ffaae4f72a03d7a4865441c9"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/common-dietary-deficiencies.html",
+          "uuid": "e688d42a0e7e39bb001238049b32ce1ae6f6a98b"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/desserts-for-diabetes.html",
+          "uuid": "6ad73734d573e88a6d9fc0f08e66c2c91e57fbf0"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/different-ways-of-using-jaggery.html",
+          "uuid": "dd419d1766e385477d61c48479593e655a0adc31"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/foods-that-have-healthy-fats.html",
+          "uuid": "5506e3aa2d14cc63e35f69e4b5ff6dfe1e994aa0"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/foods-to-avoid-in-constipation.html",
+          "uuid": "55070740fe00d22e8076cd5c366d7f2fbd078e8d"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/foods-to-manage-hypertension.html",
+          "uuid": "a3f0f9c3fe6a539dda1736dcdf6fbb5df5c14c00"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/habits-to-improve-digestion-and-gut-health.html",
+          "uuid": "b1c477f38b6b1cbf3b8a46eaae0da3a7d19f47af"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/high-blood-pressure-and-hypertension.html",
+          "uuid": "7f4b5d9c768ffc6bc8df1211112b8df8fc74f5d0"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/hormonal-imbalance-in-women.html",
+          "uuid": "176aa7d0c4818761f5ed1974147276a23d0e9e8a"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/how-to-reduce-bloating.html",
+          "uuid": "ae06478e56e81d6bdf41a31bf33151c4b6671e67"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/jaggery-nutritional-value.html",
+          "uuid": "fc3c0b2c506364b0bcaf6e6583a3775292bdf191"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/knee-pain.html",
+          "uuid": "b8f5400c8b2f0619dc1851c1b6fad4f667d28c47"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/managing-acidity-as-you-age.html",
+          "uuid": "16242beaa6a70584f9ce893019737db7b8356ce3"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/meal-timings.html",
+          "uuid": "f16f2ed4410c8bf520156d31c2cfe9f41d1ee3dd"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/prediabetes.html",
+          "uuid": "cdbe88617a6d152ef3ad4011fd4d9561bf8297e6"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/proteins-and-diabetes-management.html",
+          "uuid": "d6c731174328559a0ccb14dc0d3c6087bd53fc05"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/reasons-why-hydration-is-important.html",
+          "uuid": "c05e740d2f035c618e457b8275470ff36a264463"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/rice-bran-oil-vs-sunflower-oil.html",
+          "uuid": "e1a948fbd7be75baee88ab95ac9e4177b4140ca0"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/symptoms-of-unhealthy-gut.html",
+          "uuid": "e509665ab53372067e93a39d9103357383dd9719"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/tips-to-boost-immunity.html",
+          "uuid": "9cdffdac8b449e9ad4572b536621386f14e8fa4c"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/tips-to-tackle-constipation-issues.html",
+          "uuid": "1f2bc026e4f4e12241810e88c2f62171e94fe994"
+        },
+        {
+          "url": "https://rightshift.in/blogs/right-health/benefits-of-vitamin-b12.html",
+          "uuid": "29d9d1edfe08f0950664aac50dfb9e2b6c6dd93b"
+        }
+      ]
+    },
+    {
+      "name": "'E-commerce product page'",
+      "cluster": 6,
+      "pages": [
+        {
+          "url": "https://rightshift.in/shift-shop/millets.html",
+          "uuid": "96c57879081b0bb6f7a478240a08de6f2b597cb8"
+        }
+      ]
+    },
+    {
+      "name": "'form page'",
+      "cluster": 7,
+      "pages": [
+        {
+          "url": "https://rightshift.in/contact-us.html",
+          "uuid": "96fa31c5ef9630b52a6f71cecff74ca73d57cf6a"
+        }
+      ]
+    },
+    {
+      "name": "'Dashboard Template'",
+      "cluster": 8,
+      "pages": [
+        {
+          "url": "https://rightshift.in/blogs/right-nutrition/what-are-prebiotics-food-benefits.html",
+          "uuid": "ee67761b8eff3e516ff2a7dc60739584a4e0e40b"
+        }
+      ]
+    }
+  ]
+}
