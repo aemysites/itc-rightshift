@@ -1,48 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper: get immediate child by class
-  function getChildByClass(parent, className) {
-    return Array.from(parent.children).find(el => el.classList.contains(className));
+  // Helper to extract only the content nodes from a column (no outer layout divs)
+  function extractContent(col) {
+    if (!col) return '';
+    // Find the main content container inside the column
+    // For main: .blog-details .content-wrapper.blog-description
+    // For sidebar: .related-articles
+    const mainContent = col.querySelector('.blog-details .content-wrapper.blog-description');
+    if (mainContent) {
+      return Array.from(mainContent.childNodes);
+    }
+    const related = col.querySelector('.related-articles');
+    if (related) {
+      return [related];
+    }
+    // Fallback: all children
+    return Array.from(col.childNodes);
   }
 
-  // Find the main row with two columns
+  // Find the main row
   const row = element.querySelector('.row.section-wrapper');
   if (!row) return;
+  // Get all direct children with col-lg-8 or col-lg-4
+  const cols = Array.from(row.children).filter(
+    (col) => col.classList.contains('col-lg-8') || col.classList.contains('col-lg-4')
+  );
+  if (cols.length < 2) return;
 
-  // Find left and right columns
-  const leftCol = getChildByClass(row, 'rich-foods-wrapper');
-  const rightCol = getChildByClass(row, 'article-wrapper');
-  if (!leftCol || !rightCol) return;
+  // Extract content for each column
+  const leftContent = extractContent(cols[0]);
+  const rightContent = extractContent(cols[1]);
 
-  // In left column, find the main article content
-  let mainContent;
-  // Prefer .blog-details if present
-  const details = leftCol.querySelector('.blog-details');
-  if (details) {
-    mainContent = details;
-  } else {
-    // fallback: first .content-wrapper or leftCol itself
-    mainContent = leftCol;
-  }
+  // Table structure: header row, then columns row
+  const cells = [
+    ['Columns (columns2)'], // header row
+    [leftContent, rightContent] // columns row
+  ];
 
-  // In right column, find the related articles block
-  let relatedArticles = rightCol.querySelector('.related-articles');
-  if (!relatedArticles) {
-    // fallback: use rightCol itself
-    relatedArticles = rightCol;
-  }
-
-  // Columns2 block header row
-  const headerRow = ['Columns (columns2)'];
-  // Content row: left and right columns
-  const contentRow = [mainContent, relatedArticles];
-
-  // Create the block table
-  const table = WebImporter.DOMUtils.createTable([
-    headerRow,
-    contentRow
-  ], document);
-
-  // Replace the original element
-  element.replaceWith(table);
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

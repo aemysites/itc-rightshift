@@ -1,73 +1,68 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header row for Cards (cards5) block
+  // Table header
   const headerRow = ['Cards (cards5)'];
-  const rows = [headerRow];
 
-  // --- 0. Extract heading and description as a card ---
-  const leftCol = element.querySelector('.col-md-6');
+  // --- Extract heading and subheading as a card row ---
+  const leftCol = element.querySelector('.product-slider-detail-row .col-md-6:not(.text-center)');
+  let headingRow = null;
   if (leftCol) {
-    const contentDiv = document.createElement('div');
-    // Heading
-    const h2 = leftCol.querySelector('h2');
-    if (h2) contentDiv.appendChild(h2.cloneNode(true));
-    // All <p> elements with non-empty text
-    leftCol.querySelectorAll('p').forEach(p => {
-      if (p.textContent.trim()) {
-        contentDiv.appendChild(p.cloneNode(true));
-      }
+    const textCell = document.createElement('div');
+    const heading = leftCol.querySelector('h2');
+    if (heading) textCell.appendChild(heading.cloneNode(true));
+    const paragraphs = leftCol.querySelectorAll('p');
+    paragraphs.forEach(p => {
+      if (p.textContent.trim()) textCell.appendChild(p.cloneNode(true));
     });
-    if (contentDiv.childNodes.length > 0) {
-      // Use a visually empty span as placeholder for image cell
-      const placeholder = document.createElement('span');
-      placeholder.textContent = '\u200B'; // zero-width space
-      rows.push([
-        placeholder,
-        contentDiv
-      ]);
+    headingRow = [null, textCell];
+  }
+
+  // --- Extract feature badges as individual cards (image + label only) ---
+  const rightCol = element.querySelector('.product-slider-detail-row .col-md-6.text-center');
+  const badgeDivs = rightCol ? Array.from(rightCol.children) : [];
+  const badgeRows = badgeDivs.map(badge => {
+    const img = badge.querySelector('img');
+    const label = badge.querySelector('p');
+    const textCell = document.createElement('div');
+    if (label) textCell.appendChild(label.cloneNode(true));
+    return [img, textCell];
+  });
+
+  // --- Extract product cards ---
+  const cardsContainer = element.querySelector('.recommended-products .items');
+  const cardEls = cardsContainer ? Array.from(cardsContainer.children) : [];
+  const cardRows = cardEls.map(cardEl => {
+    // Image (mandatory)
+    const img = cardEl.querySelector('.card-header img');
+    // Title (optional)
+    const title = cardEl.querySelector('.card-slider-content h6');
+    // Description (optional)
+    const desc = cardEl.querySelector('.card-slider-content p');
+    // Price (optional)
+    const price = cardEl.querySelector('.card-slider-content h5');
+    // CTA (optional)
+    const cta = cardEl.querySelector('.btn-wrapper a');
+    // Compose text cell (title, description, price, CTA)
+    const textCell = document.createElement('div');
+    if (title) textCell.appendChild(title.cloneNode(true));
+    if (desc) {
+      // Normalize &nbsp; in description
+      const cleanDesc = desc.cloneNode(true);
+      cleanDesc.innerHTML = cleanDesc.innerHTML.replace(/&nbsp;/g, ' ');
+      textCell.appendChild(cleanDesc);
     }
-  }
+    if (price) textCell.appendChild(price.cloneNode(true));
+    if (cta) textCell.appendChild(cta.cloneNode(true));
+    return [img, textCell];
+  });
 
-  // --- 1. Extract feature icons as cards ---
-  const featureCol = element.querySelector('.col-md-6.text-center');
-  if (featureCol) {
-    featureCol.querySelectorAll('div').forEach(featureDiv => {
-      const img = featureDiv.querySelector('img');
-      const label = featureDiv.querySelector('p');
-      if (img && label) {
-        const textDiv = document.createElement('div');
-        textDiv.appendChild(label.cloneNode(true));
-        rows.push([
-          img,
-          textDiv
-        ]);
-      }
-    });
-  }
+  // Build table
+  const rows = [headerRow];
+  if (headingRow) rows.push(headingRow);
+  rows.push(...badgeRows);
+  rows.push(...cardRows);
+  const table = WebImporter.DOMUtils.createTable(rows, document);
 
-  // --- 2. Extract product cards ---
-  const cardContainer = element.querySelector('.recommended-products .items');
-  if (cardContainer) {
-    const cardEls = cardContainer.querySelectorAll('.card');
-    cardEls.forEach(card => {
-      const img = card.querySelector('img');
-      const content = document.createElement('div');
-      const title = card.querySelector('.card-slider-content h6');
-      if (title) content.appendChild(title.cloneNode(true));
-      const desc = card.querySelector('.card-slider-content p');
-      if (desc) content.appendChild(desc.cloneNode(true));
-      const price = card.querySelector('.card-slider-content h5');
-      if (price) content.appendChild(price.cloneNode(true));
-      const cta = card.querySelector('.card-header .btn-wrapper a');
-      if (cta) content.appendChild(cta.cloneNode(true));
-      rows.push([
-        img,
-        content
-      ]);
-    });
-  }
-
-  // --- Create and replace block table ---
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+  // Replace original element
+  element.replaceWith(table);
 }

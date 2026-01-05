@@ -1,47 +1,50 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Accordion block header
-  const headerRow = ['Accordion (accordion11)'];
-  const rows = [headerRow];
-
   // Find the accordion container
   const accordion = element.querySelector('.accordion');
   if (!accordion) return;
 
-  // Get all accordion items (cards)
+  // Find all accordion items (cards)
   const cards = accordion.querySelectorAll('.card');
+  const rows = [];
 
-  // For each card, extract title and content
+  // Header row as required by the block spec
+  rows.push(['Accordion (accordion11)']);
+
   cards.forEach(card => {
-    // Title: usually inside button in card-header
-    const headerBtn = card.querySelector('.card-header button');
-    let titleCell;
-    if (headerBtn) {
-      // Clone the button, remove images (arrow icons)
-      const btnClone = headerBtn.cloneNode(true);
-      btnClone.querySelectorAll('img').forEach(img => img.remove());
-      // Use innerHTML to preserve formatting (bold, links, etc.)
-      titleCell = document.createElement('div');
-      titleCell.innerHTML = btnClone.innerHTML.trim();
-    } else {
-      // Fallback: use header text
-      const h3 = card.querySelector('.card-header h3');
-      titleCell = document.createElement('div');
-      titleCell.textContent = h3 ? h3.textContent.trim() : '';
+    // Title extraction: from the button inside .card-header
+    let title = '';
+    const header = card.querySelector('.card-header');
+    if (header) {
+      const btn = header.querySelector('button');
+      if (btn) {
+        // Remove arrow icon (img) if present
+        const btnClone = btn.cloneNode(true);
+        btnClone.querySelectorAll('img').forEach(img => img.remove());
+        title = btnClone.textContent.trim();
+      }
     }
 
-    // Content: inside .card-body
-    const body = card.querySelector('.card-body');
-    let contentCell = document.createElement('div');
-    if (body) {
-      Array.from(body.childNodes).forEach(node => {
-        contentCell.appendChild(node.cloneNode(true));
-      });
+    // Content extraction: from .card-body inside .collapse
+    let contentCell = '';
+    const collapse = card.querySelector('.collapse');
+    if (collapse) {
+      const body = collapse.querySelector('.card-body');
+      if (body) {
+        // Remove screen-reader-only spans from links
+        body.querySelectorAll('.cmp-link__screen-reader-only').forEach(el => el.remove());
+        // Use all child nodes to preserve structure (lists, paragraphs, etc)
+        contentCell = Array.from(body.childNodes);
+      }
     }
-    rows.push([titleCell, contentCell]);
+
+    rows.push([
+      title || '',
+      contentCell && contentCell.length ? contentCell : ''
+    ]);
   });
 
-  // Replace the original element with the block table
+  // Create the accordion table block
   const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

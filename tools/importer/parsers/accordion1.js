@@ -1,64 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the left column containing the accordion
-  const accordionCol = Array.from(element.querySelectorAll(':scope section .row > div')).find(
-    col => col.querySelector('.accordion')
-  );
-  if (!accordionCol) return;
-
-  const accordion = accordionCol.querySelector('.accordion');
-  if (!accordion) return;
-
-  // Get all accordion items (cards)
-  const cards = Array.from(accordion.querySelectorAll(':scope > .card'));
-  if (!cards.length) return;
-
-  // Block header row as per spec
+  // Accordion block header
   const headerRow = ['Accordion (accordion1)'];
   const rows = [headerRow];
 
-  // For each card, extract title and content
+  // Find the accordion container
+  const accordion = element.querySelector('.accordion');
+  if (!accordion) return;
+
+  // Find all accordion items (cards)
+  const cards = accordion.querySelectorAll('.card');
   cards.forEach(card => {
-    // Title cell: Find the button inside card-header
-    const cardHeader = card.querySelector('.card-header');
-    let titleText = '';
-    if (cardHeader) {
-      const btn = cardHeader.querySelector('button');
-      if (btn) {
-        // Only get the question text, not the chevron image
-        titleText = btn.childNodes[0].textContent.trim();
-      } else {
-        const h3 = cardHeader.querySelector('h3');
-        if (h3) {
-          titleText = h3.textContent.trim();
-        } else {
-          titleText = cardHeader.textContent.trim();
-        }
-      }
+    // Title: get the button inside the card-header
+    const header = card.querySelector('.card-header button');
+    let titleContent = '';
+    if (header) {
+      // Clone the button, remove the arrow image, and get the inner HTML
+      const btnClone = header.cloneNode(true);
+      const arrow = btnClone.querySelector('img');
+      if (arrow) arrow.remove();
+      titleContent = btnClone.innerHTML.trim();
     }
-    const titleEl = document.createElement('span');
-    titleEl.textContent = titleText;
+    // Create a div for the title to preserve formatting
+    const titleDiv = document.createElement('div');
+    titleDiv.innerHTML = titleContent;
 
-    // Content cell: Find the card-body
-    const cardBody = card.querySelector('.card-body');
-    let contentEl = null;
-    if (cardBody) {
-      if (cardBody.children.length === 1) {
-        contentEl = cardBody.firstElementChild;
-      } else {
-        const frag = document.createDocumentFragment();
-        Array.from(cardBody.children).forEach(child => frag.appendChild(child));
-        contentEl = frag;
-      }
-    } else {
-      contentEl = document.createElement('span');
-      contentEl.textContent = '';
+    // Content: get the .card-body
+    const body = card.querySelector('.card-body');
+    let contentDiv = document.createElement('div');
+    if (body) {
+      // Move all children of card-body into contentDiv
+      Array.from(body.childNodes).forEach(node => {
+        contentDiv.appendChild(node.cloneNode(true));
+      });
     }
-
-    rows.push([titleEl, contentEl]);
+    rows.push([titleDiv, contentDiv]);
   });
 
-  // Replace the original element with the block table
+  // Create the table block
   const table = WebImporter.DOMUtils.createTable(rows, document);
+  // Replace the original element
   element.replaceWith(table);
 }
