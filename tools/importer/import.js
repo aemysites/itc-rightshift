@@ -11,17 +11,17 @@
  */
 /* global WebImporter */
 /* eslint-disable no-console */
-import columns2Parser from './parsers/columns2.js';
 import accordion1Parser from './parsers/accordion1.js';
-import cards7Parser from './parsers/cards7.js';
-import cards5Parser from './parsers/cards5.js';
+import columns2Parser from './parsers/columns2.js';
 import columns4Parser from './parsers/columns4.js';
 import hero8Parser from './parsers/hero8.js';
+import cards7Parser from './parsers/cards7.js';
+import cards5Parser from './parsers/cards5.js';
 import accordion10Parser from './parsers/accordion10.js';
-import tableBordered12Parser from './parsers/tableBordered12.js';
-import hero9Parser from './parsers/hero9.js';
 import accordion11Parser from './parsers/accordion11.js';
 import accordion13Parser from './parsers/accordion13.js';
+import hero9Parser from './parsers/hero9.js';
+import tableBordered12Parser from './parsers/tableBordered12.js';
 import headerParser from './parsers/header.js';
 import metadataParser from './parsers/metadata.js';
 import cleanupTransformer from './transformers/cleanup.js';
@@ -38,17 +38,17 @@ import {
 
 const parsers = {
   metadata: metadataParser,
-  columns2: columns2Parser,
   accordion1: accordion1Parser,
-  cards7: cards7Parser,
-  cards5: cards5Parser,
+  columns2: columns2Parser,
   columns4: columns4Parser,
   hero8: hero8Parser,
+  cards7: cards7Parser,
+  cards5: cards5Parser,
   accordion10: accordion10Parser,
-  tableBordered12: tableBordered12Parser,
-  hero9: hero9Parser,
   accordion11: accordion11Parser,
   accordion13: accordion13Parser,
+  hero9: hero9Parser,
+  tableBordered12: tableBordered12Parser,
   ...customParsers,
 };
 

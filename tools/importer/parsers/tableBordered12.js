@@ -1,72 +1,38 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table (bordered, tableBordered12) block parser
-  // Defensive: find the bordered table with nutritional data
+  // Find the nutrition table in the article
+  const table = element.querySelector('table');
+  if (!table) return;
 
-  // Helper: Find the nutritional table under the correct heading
-  let table;
-  // Find all h2s under this block
-  const h2s = element.querySelectorAll('h2');
-  let nutritionHeading;
-  for (const h2 of h2s) {
-    if (h2.textContent.trim().toLowerCase().includes('nutritional profile')) {
-      nutritionHeading = h2;
-      break;
-    }
-  }
-  if (nutritionHeading) {
-    // The table is the next sibling or nearby after this heading
-    let next = nutritionHeading.nextElementSibling;
-    while (next && next.tagName !== 'TABLE') {
-      next = next.nextElementSibling;
-    }
-    if (next && next.tagName === 'TABLE') {
-      table = next;
-    }
-  }
+  // Get all rows from the source table
+  const rows = Array.from(table.rows);
+  if (rows.length === 0) return;
 
-  // If not found, fallback: find first table in block
-  if (!table) {
-    table = element.querySelector('table');
-  }
-  if (!table) {
-    // No table found, do nothing
-    return;
-  }
-
-  // Parse the table into rows/cells
-  const rows = [];
-  const trs = table.querySelectorAll('tr');
-  for (const tr of trs) {
-    const cells = [];
-    const tds = tr.querySelectorAll('td');
-    for (const td of tds) {
-      // If the td only contains a <p>, use that element
-      if (td.children.length === 1 && td.firstElementChild.tagName === 'P') {
-        cells.push(td.firstElementChild);
-      } else {
-        // Otherwise, use the td itself
-        cells.push(td);
-      }
-    }
-    rows.push(cells);
-  }
-
-  // Compose the block table
-  // Header row: block name
+  // Block header row (CRITICAL: must be exactly one column with the block name)
   const headerRow = ['Table (bordered, tableBordered12)'];
 
-  // The rest of the rows: preserve the table's structure
-  // Defensive: If the first row is a header, keep it as-is
-  // All rows must have the same number of columns
-  const blockRows = [headerRow];
-  for (const row of rows) {
-    blockRows.push(row);
-  }
+  // Extract column headers from the first row (should be two columns)
+  const tableHeaderCells = Array.from(rows[0].cells).map(cell => cell.textContent.trim());
 
-  // Create the block table
-  const blockTable = WebImporter.DOMUtils.createTable(blockRows, document);
+  // Extract data rows (each row should have two columns)
+  const dataRows = rows.slice(1).map(tr => {
+    return Array.from(tr.cells).map(td => {
+      const p = td.querySelector('p');
+      return p ? p : td.textContent.trim();
+    });
+  });
 
-  // Replace the original table with the block table
-  table.replaceWith(blockTable);
+  // Compose the final table cells array
+  const cells = [
+    headerRow,
+    tableHeaderCells,
+    ...dataRows,
+  ];
+
+  // Create the new block table using DOMUtils and set border attribute
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  block.setAttribute('border', '1');
+
+  // Replace the original table with the new block table
+  table.replaceWith(block);
 }

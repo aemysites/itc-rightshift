@@ -1,63 +1,54 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper: Get all banner images (desktop and mobile)
-  function getBannerImages(container) {
-    const imgs = container.querySelectorAll('img');
-    return Array.from(imgs);
-  }
-
-  // Helper: Get breadcrumb links and plain text, preserving anchor tags
-  function getBreadcrumbContent(element) {
-    const breadcrumb = element.querySelector('.cmp-breadcrumb__list');
-    if (breadcrumb) {
-      const items = breadcrumb.querySelectorAll('.cmp-breadcrumb__item');
-      const fragment = document.createDocumentFragment();
-      items.forEach((item, idx) => {
-        const link = item.querySelector('a');
-        if (link) {
-          const a = document.createElement('a');
-          a.href = link.href;
-          a.textContent = link.textContent.trim();
-          fragment.appendChild(a);
-        }
-        const span = item.querySelector('span[itemprop="name"]');
-        if (span && !link) {
-          const spanEl = document.createElement('span');
-          spanEl.textContent = span.textContent.trim();
-          fragment.appendChild(spanEl);
-        }
-        // Add separator except after last item
-        if (idx < items.length - 1) {
-          fragment.appendChild(document.createTextNode(' > '));
-        }
-      });
-      const p = document.createElement('p');
-      p.appendChild(fragment);
-      return p;
-    }
-    return '';
-  }
-
-  // Row 1: Header
+  // Header row for Hero (hero9)
   const headerRow = ['Hero (hero9)'];
 
-  // Row 2: Banner images (include both desktop and mobile)
-  let bannerImgs = [];
-  const section = element.querySelector('section.content-wrapper-section');
-  if (section) {
-    const container = section.querySelector('.container');
-    if (container) {
-      bannerImgs = getBannerImages(container);
+  // --- IMAGE ROW ---
+  // Find the main hero image (prefer desktop, fallback to mobile if needed)
+  let image = null;
+  const container = element.querySelector('.container');
+  if (container) {
+    image = container.querySelector('img.d-md-block');
+    if (!image) image = container.querySelector('img');
+  }
+  // Create an image element for the cell
+  let imageCell = '';
+  if (image) {
+    const img = document.createElement('img');
+    img.src = image.src;
+    img.alt = image.alt || '';
+    imageCell = img;
+  }
+  const imageRow = [imageCell];
+
+  // --- TEXT ROW ---
+  // Extract breadcrumb text content from .cmp-breadcrumb__list
+  let breadcrumbText = '';
+  const breadcrumbList = element.querySelector('.cmp-breadcrumb__list');
+  if (breadcrumbList) {
+    const items = breadcrumbList.querySelectorAll('.cmp-breadcrumb__item');
+    breadcrumbText = Array.from(items).map(item => {
+      const nameSpan = item.querySelector('[itemprop="name"]');
+      return nameSpan ? nameSpan.textContent.trim() : '';
+    }).filter(Boolean).join(' > ');
+  }
+  // Fallback: Try to get all text from .cmp-breadcrumb if breadcrumbList is missing
+  if (!breadcrumbText) {
+    const breadcrumb = element.querySelector('.cmp-breadcrumb');
+    if (breadcrumb) {
+      breadcrumbText = breadcrumb.textContent.trim();
     }
   }
-  const imageRow = [bannerImgs.length ? bannerImgs : ''];
+  const textRow = [breadcrumbText || ''];
 
-  // Row 3: Breadcrumb navigation (preserving links)
-  const breadcrumbContent = getBreadcrumbContent(element);
-  const contentRow = [breadcrumbContent ? breadcrumbContent : ''];
+  // Compose the table
+  const cells = [
+    headerRow,
+    imageRow,
+    textRow,
+  ];
 
-  // Build table
-  const cells = [headerRow, imageRow, contentRow];
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // Create the table block and replace the element
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }
